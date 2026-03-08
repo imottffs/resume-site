@@ -4,652 +4,391 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>張瑞育｜Backend Engineer Resume</title>
-  <meta name="description" content="張瑞育的個人履歷網站，專長包含 C#、.NET、MS SQL、API 設計、系統分析與 AI Workflow。" />
-  <style>
-    :root {
-      --bg: #f5f7fb;
-      --card: #ffffff;
-      --text: #1f2937;
-      --muted: #6b7280;
-      --primary: #1d4ed8;
-      --primary-soft: #dbeafe;
-      --border: #e5e7eb;
-      --tag: #eef2ff;
-      --shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
-      --max-width: 1120px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-    }
-
-    a {
-      color: var(--primary);
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
-    }
-
-    .container {
-      max-width: var(--max-width);
-      margin: 0 auto;
-      padding: 24px;
-    }
-
-    .hero {
-      background: linear-gradient(135deg, #eff6ff 0%, #ffffff 55%, #f8fafc 100%);
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      padding: 32px;
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 28px;
-      align-items: center;
-      margin-top: 20px;
-    }
-
-    .photo-wrap {
-      width: 160px;
-      height: 160px;
-      border-radius: 22px;
-      overflow: hidden;
-      border: 1px solid var(--border);
-      background: #f3f4f6;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .photo-wrap img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-    }
-
-    .photo-placeholder {
-      color: var(--muted);
-      font-size: 14px;
-      text-align: center;
-      padding: 16px;
-    }
-
-    .hero h1 {
-      margin: 0 0 8px;
-      font-size: 38px;
-      line-height: 1.2;
-      letter-spacing: 0.5px;
-    }
-
-    .hero .title {
-      font-size: 20px;
-      color: var(--primary);
-      font-weight: 700;
-      margin-bottom: 10px;
-    }
-
-    .hero .summary {
-      margin: 0 0 16px;
-      color: #374151;
-      max-width: 820px;
-    }
-
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 12px;
-    }
-
-    .chip {
-      padding: 8px 12px;
-      border-radius: 999px;
-      background: var(--tag);
-      color: #3730a3;
-      font-size: 14px;
-      font-weight: 600;
-      border: 1px solid #c7d2fe;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 300px 1fr;
-      gap: 24px;
-      margin-top: 24px;
-      align-items: start;
-    }
-
-    .card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      box-shadow: var(--shadow);
-      padding: 24px;
-    }
-
-    .section-title {
-      margin: 0 0 16px;
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: 0.3px;
-    }
-
-    .subtle {
-      color: var(--muted);
-    }
-
-    .info-list,
-    .skill-list,
-    .project-list,
-    .bullet-list,
-    .timeline-list {
-      list-style: none;
-      padding: 0;
-      margin: 0;
-    }
-
-    .info-list li,
-    .skill-list li {
-      margin-bottom: 12px;
-    }
-
-    .label {
-      display: block;
-      font-size: 13px;
-      color: var(--muted);
-      margin-bottom: 2px;
-    }
-
-    .value {
-      font-size: 15px;
-      color: var(--text);
-      font-weight: 600;
-    }
-
-    .skill-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-    }
-
-    .skill-list li {
-      margin: 0;
-      padding: 8px 12px;
-      background: #f8fafc;
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .main-section {
-      margin-bottom: 24px;
-    }
-
-    .timeline-item {
-      position: relative;
-      padding-left: 22px;
-      margin-bottom: 28px;
-      border-left: 2px solid #dbeafe;
-    }
-
-    .timeline-item::before {
-      content: "";
-      position: absolute;
-      left: -7px;
-      top: 3px;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--primary);
-      box-shadow: 0 0 0 4px var(--primary-soft);
-    }
-
-    .timeline-item h3 {
-      margin: 0;
-      font-size: 20px;
-      line-height: 1.4;
-    }
-
-    .timeline-meta {
-      margin: 4px 0 10px;
-      color: var(--muted);
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .timeline-item p {
-      margin: 0 0 10px;
-    }
-
-    .bullet-list li {
-      position: relative;
-      padding-left: 18px;
-      margin-bottom: 8px;
-      color: #374151;
-    }
-
-    .bullet-list li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--primary);
-      font-weight: bold;
-    }
-
-    .project-card {
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      padding: 20px;
-      background: #fcfdff;
-      margin-bottom: 18px;
-    }
-
-    .project-card h3 {
-      margin: 0 0 6px;
-      font-size: 19px;
-    }
-
-    .project-meta {
-      font-size: 14px;
-      color: var(--muted);
-      margin-bottom: 10px;
-      font-weight: 600;
-    }
-
-    .project-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-      margin-top: 14px;
-    }
-
-    .project-block {
-      background: #fff;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 14px 16px;
-    }
-
-    .project-block h4 {
-      margin: 0 0 8px;
-      font-size: 14px;
-      color: #111827;
-    }
-
-    .tag-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 10px;
-    }
-
-    .tag {
-      font-size: 12px;
-      padding: 6px 10px;
-      border-radius: 999px;
-      background: #eff6ff;
-      color: #1d4ed8;
-      border: 1px solid #bfdbfe;
-    }
-
-    .footer {
-      text-align: center;
-      color: var(--muted);
-      font-size: 13px;
-      padding: 18px 0 32px;
-    }
-
-    @media (max-width: 900px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-
-      .hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .photo-wrap {
-        margin: 0 auto;
-      }
-
-      .chips {
-        justify-content: center;
-      }
-
-      .project-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 560px) {
-      .container {
-        padding: 16px;
-      }
-
-      .hero,
-      .card {
-        padding: 20px;
-      }
-
-      .hero h1 {
-        font-size: 30px;
-      }
-    }
-  </style>
+  <meta
+    name="description"
+    content="張瑞育的個人履歷網站，專長包含 C#、.NET、MS SQL、API 設計、系統分析、AI Workflow 與系統整合。"
+  />
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="container">
-    <section class="hero">
-      <div class="photo-wrap">
-        <!-- 把 photo.jpg 放到同一層資料夾即可 -->
-        <img src="photo.jpg" alt="張瑞育個人照片" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';" />
-        <div class="photo-placeholder" style="display:none;">
-          個人照片<br />photo.jpg
+  <div class="page-bg"></div>
+
+  <header class="site-header">
+    <div class="container nav">
+      <a class="brand" href="#top">Ray Chang</a>
+      <nav class="nav-links">
+        <a href="#about">關於我</a>
+        <a href="#skills">技能</a>
+        <a href="#experience">經歷</a>
+        <a href="#projects">專案</a>
+        <a href="#certifications">證照</a>
+        <a href="#contact">聯絡方式</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top" class="container">
+    <section class="hero card">
+      <div class="hero-left">
+        <div class="photo-wrap">
+          <img
+            src="photo.jpg"
+            alt="張瑞育個人照片"
+            class="profile-photo"
+            onerror="this.style.display='none'; this.parentElement.classList.add('photo-fallback')"
+          />
+          <div class="photo-placeholder">個人照片<br />photo.jpg</div>
         </div>
       </div>
 
-      <div>
+      <div class="hero-right">
+        <p class="eyebrow">Backend Engineer</p>
         <h1>張瑞育</h1>
-        <div class="title">Backend Engineer</div>
-        <p class="summary">
-          具備後端開發、API 設計、資料庫規劃與系統分析經驗，近期聚焦於內部 AI 對談系統、
-          RAGflow 串接流程、三層式架構開發，以及 APP / POS / 金流整合型專案。
+        <h2>專注於 API 設計、系統整合與 AI-assisted development workflow</h2>
+
+        <p class="hero-summary">
+          具 7+ 年後端開發經驗，專長於 C#、.NET、MS SQL、API 規格設計、DB Schema 規劃與系統分析。
+          曾參與金流、票券、優惠券、抽獎活動、官網與內部 AI 對談系統等專案，近期聚焦於
+          RAGflow 串接、AI workflow 與三層式架構開發。
         </p>
 
-        <div class="chips">
-          <span class="chip">C#</span>
-          <span class="chip">.NET</span>
-          <span class="chip">MS SQL</span>
-          <span class="chip">ASP.NET</span>
-          <span class="chip">Vue.js</span>
-          <span class="chip">API Design</span>
-          <span class="chip">System Analysis</span>
-          <span class="chip">AI Workflow</span>
+        <div class="hero-tags">
+          <span>C#</span>
+          <span>.NET</span>
+          <span>ASP.NET MVC</span>
+          <span>Web API</span>
+          <span>MS SQL</span>
+          <span>API Design</span>
+          <span>System Analysis</span>
+          <span>AI Workflow</span>
+        </div>
+
+        <div class="hero-actions">
+          <a class="btn primary" href="#projects">查看專案</a>
+          <a class="btn secondary" href="#contact">聯絡資訊</a>
         </div>
       </div>
     </section>
 
-    <div class="grid">
-      <aside>
-        <section class="card main-section">
-          <h2 class="section-title">基本資訊</h2>
-          <ul class="info-list">
-            <li>
-              <span class="label">目前職務</span>
-              <span class="value">Backend Engineer｜群益期貨</span>
-            </li>
-            <li>
-              <span class="label">工作年資</span>
-              <span class="value">7–8 年</span>
-            </li>
-            <li>
-              <span class="label">專長領域</span>
-              <span class="value">後端開發、API 設計、系統分析、資料庫規劃</span>
-            </li>
-            <li>
-              <span class="label">目前重點</span>
-              <span class="value">內部 AI 系統、RAGflow、官網前後台</span>
-            </li>
-          </ul>
+    <div class="layout">
+      <aside class="sidebar">
+        <section id="about" class="card section">
+          <h3 class="section-title">關於我</h3>
+          <p>
+            我習慣從需求、API 規格、資料結構與系統流程去理解問題，並把模糊需求整理成可開發的方案。
+            在專案中除了負責後端開發，也常參與 API 設計、資料庫規劃、流程圖整理、Code Review 與跨系統串接。
+          </p>
+          <p>
+            目前也會把 AI 工具納入開發流程，協助需求釐清、畫面預覽、程式初稿、測試情境整理與風險檢查，
+            但最終的設計與品質控制仍由自己把關。
+          </p>
         </section>
 
-        <section class="card main-section">
-          <h2 class="section-title">核心技能</h2>
-          <ul class="skill-list">
-            <li>C#</li>
-            <li>.NET / ASP.NET</li>
-            <li>MS SQL</li>
-            <li>Vue.js</li>
-            <li>REST API</li>
-            <li>DB Schema</li>
-            <li>System Analysis</li>
-            <li>Git</li>
-            <li>Code Review</li>
-            <li>RAGflow</li>
-          </ul>
+        <section id="skills" class="card section">
+          <h3 class="section-title">技能</h3>
+
+          <div class="skill-group">
+            <h4>Backend Development</h4>
+            <div class="chips">
+              <span>C#</span>
+              <span>.NET Framework</span>
+              <span>.NET</span>
+              <span>ASP.NET MVC</span>
+              <span>Web API</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h4>Database</h4>
+            <div class="chips">
+              <span>MS SQL Server</span>
+              <span>DB Schema Design</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h4>Architecture & Integration</h4>
+            <div class="chips">
+              <span>REST API Design</span>
+              <span>System Integration</span>
+              <span>API Contract</span>
+              <span>System Analysis</span>
+              <span>Code Review</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h4>Tools</h4>
+            <div class="chips">
+              <span>Git</span>
+              <span>Swagger</span>
+              <span>Vue.js</span>
+            </div>
+          </div>
+
+          <div class="skill-group">
+            <h4>AI-assisted Development</h4>
+            <div class="chips">
+              <span>ChatGPT</span>
+              <span>Claude</span>
+              <span>Codex</span>
+              <span>Gemini Canvas</span>
+              <span>AI Workflow</span>
+            </div>
+          </div>
         </section>
 
-        <section class="card main-section">
-          <h2 class="section-title">履歷重點</h2>
-          <ul class="bullet-list">
-            <li>具 APP、金流、POS、票券、抽獎與官網後台整合經驗</li>
-            <li>能從需求整理、API 規格、DB 設計一路推進到交付</li>
-            <li>具多方串接經驗，重視契約、回歸風險與可維護性</li>
-            <li>近期導入 AI workflow 輔助規劃、畫面預覽與程式草稿生成</li>
+        <section id="certifications" class="card section">
+          <h3 class="section-title">證照</h3>
+          <div class="cert-card">
+            <h4>iPAS+ AI 應用規劃師能力鑑定（初級）</h4>
+            <p class="muted">iPAS+ AI Application Planner Certification (Entry Level)</p>
+            <p>
+              具備 AI 基礎概念、資料分析理解與 AI 應用規劃能力，能協助將 AI 工具與系統需求結合，
+              規劃具可行性的應用情境。
+            </p>
+          </div>
+        </section>
+
+        <section id="contact" class="card section">
+          <h3 class="section-title">聯絡方式</h3>
+          <ul class="contact-list">
+            <li>
+              <span>Resume Site</span>
+              <a href="https://imottffs.github.io/resume-site/" target="_blank">imottffs.github.io/resume-site</a>
+            </li>
           </ul>
         </section>
       </aside>
 
-      <main>
-        <section class="card main-section">
-          <h2 class="section-title">工作經驗</h2>
-
-          <div class="timeline-item">
-            <h3>群益期貨股份有限公司</h3>
-            <div class="timeline-meta">Backend Engineer｜台北市大安區｜2024/11 – Present</div>
-            <ul class="bullet-list">
-              <li>與需求單位確認需求，規劃系統功能與服務串接邏輯</li>
-              <li>進行後端系統開發，支援內部 AI 流程中台</li>
-              <li>參與官網新功能開發，涵蓋前後台功能</li>
-            </ul>
+      <section class="main-content">
+        <section id="experience" class="card section">
+          <div class="section-head">
+            <h3 class="section-title">工作經歷</h3>
+            <p class="section-desc">後端開發、系統分析、API 設計與跨系統整合經驗</p>
           </div>
 
-          <div class="timeline-item">
-            <h3>緯創軟體股份有限公司（派遣至群益期貨）</h3>
-            <div class="timeline-meta">Senior Backend Engineer｜新北市汐止區｜2024/5 – 2024/11</div>
-            <ul class="bullet-list">
-              <li>參與群益期貨新官網與後台系統開發</li>
-              <li>負責後端 API 與系統功能開發</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item">
-            <h3>康太數位整合股份有限公司</h3>
-            <div class="timeline-meta">Senior Backend Engineer / System Analyst｜台北市中正區｜2023/4 – 2024/1</div>
-            <ul class="bullet-list">
-              <li>負責專案架構設計、API 設計與後端開發</li>
-              <li>協助跨系統整合，支援 APP、POS 與其他服務串接</li>
-              <li>兼顧系統分析、流程整理、Code Review 與測試驗證</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item">
-            <h3>康太數位整合股份有限公司</h3>
-            <div class="timeline-meta">Senior Backend Engineer｜2020/2 – 2023/3</div>
-            <ul class="bullet-list">
-              <li>參與 17Life 與大型 APP 專案開發</li>
-              <li>涵蓋購物車、訂單、抽獎活動與資料庫優化等功能</li>
-            </ul>
-          </div>
-
-          <div class="timeline-item">
-            <h3>學思行數位行銷股份有限公司（Taaze）</h3>
-            <div class="timeline-meta">Web Engineer｜台北市中山區｜2018/11 – 2020/2</div>
-            <ul class="bullet-list">
-              <li>以 Scrum 方式參與後台與網站功能開發</li>
-              <li>維護網站功能並優化電子書相關功能</li>
-              <li>接觸 Java、PHP 與多種 Web 技術</li>
-            </ul>
-          </div>
-
-          <details style="margin-top: 8px;">
-            <summary style="cursor:pointer; color:#1d4ed8; font-weight:700;">展開早期工作經驗</summary>
-            <div style="margin-top: 16px;">
-              <div class="timeline-item">
-                <h3>欣台保險經紀人</h3>
-                <div class="timeline-meta">保險業務｜2014/7 – 2018/11</div>
-                <p class="subtle">負責客戶保險規劃與業務開發。</p>
+          <div class="timeline">
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>群益期貨股份有限公司</h4>
+                  <span>2024/11 – Present</span>
+                </div>
+                <p class="timeline-role">Backend Engineer｜台北市大安區</p>
+                <ul>
+                  <li>與需求單位確認需求，規劃系統功能與服務串接邏輯，進行後端開發。</li>
+                  <li>協助其他部門開發 AI 流程中台，參與問題釐清與系統整合。</li>
+                  <li>參與官網新功能開發，涵蓋前台與後台功能。</li>
+                </ul>
               </div>
+            </article>
 
-              <div class="timeline-item">
-                <h3>磐石保險經紀人</h3>
-                <div class="timeline-meta">保險業務｜2010/12 – 2014/7</div>
-                <p class="subtle">負責客戶保險規劃與銷售。</p>
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>緯創軟體股份有限公司（派遣至群益期貨）</h4>
+                  <span>2024/5 – 2024/11</span>
+                </div>
+                <p class="timeline-role">Senior Backend Engineer｜新北市汐止區</p>
+                <ul>
+                  <li>參與群益期貨新官網與後台系統開發。</li>
+                  <li>負責後端 API 與系統功能開發。</li>
+                </ul>
               </div>
+            </article>
 
-              <div class="timeline-item">
-                <h3>中央研究院 人文社會學院</h3>
-                <div class="timeline-meta">資料處理助理｜2010/4 – 2010/10</div>
-                <p class="subtle">資料整理、資料檢誤與報表排版。</p>
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>康太數位整合股份有限公司</h4>
+                  <span>2023/4 – 2024/1</span>
+                </div>
+                <p class="timeline-role">Senior Backend Engineer / System Analyst｜台北市中正區</p>
+                <ul>
+                  <li>負責 API 設計、資料結構規劃、系統分析與後端開發。</li>
+                  <li>主要專案包括：昇恆昌 APP 錢包服務、三商 i 美食優惠券與集章系統。</li>
+                  <li>協助流程圖整理、Code Review、串接規格確認與測試驗證。</li>
+                </ul>
               </div>
+            </article>
 
-              <div class="timeline-item" style="margin-bottom: 0;">
-                <h3>柏克市場研究顧問股份有限公司</h3>
-                <div class="timeline-meta">資料處理人員｜2008/11 – 2009/9</div>
-                <p class="subtle">撰寫資料檢查程式、產製市場調查報表、使用 SPSS 進行統計分析。</p>
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>康太數位整合股份有限公司</h4>
+                  <span>2020/2 – 2023/3</span>
+                </div>
+                <p class="timeline-role">Senior Backend Engineer</p>
+                <ul>
+                  <li>參與 17Life、大型 APP 與活動系統後端開發。</li>
+                  <li>主要專案包括：新光三越 APP、多商品購物車與多規格、全家 APP 抽獎趣。</li>
+                  <li>負責後端核心邏輯、SQL 優化、API 設計與流程測試。</li>
+                </ul>
               </div>
-            </div>
-          </details>
+            </article>
+
+            <article class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-header">
+                  <h4>學思行數位行銷股份有限公司（Taaze）</h4>
+                  <span>2018/11 – 2020/2</span>
+                </div>
+                <p class="timeline-role">Web Engineer｜台北市中山區</p>
+                <ul>
+                  <li>以 Scrum 方式進行後台維護、網站功能開發與電子書功能優化。</li>
+                  <li>接觸 Java、PHP 與多種 Web 技術，培養跨語言問題分析能力。</li>
+                </ul>
+              </div>
+            </article>
+          </div>
         </section>
 
-        <section class="card main-section">
-          <h2 class="section-title">代表專案</h2>
-
-          <div class="project-card">
-            <h3>昇恆昌 APP｜錢包支付服務</h3>
-            <div class="project-meta">2023/4 – 2023/10</div>
-            <p>
-              負責錢包支付服務的 API 規格、資料庫設計與支付流程規劃，並支援新人開發、Code Review 與交付前測試。
-            </p>
-            <div class="project-grid">
-              <div class="project-block">
-                <h4>工作內容</h4>
-                <ul class="bullet-list">
-                  <li>設計支付流程與支付 API 規格</li>
-                  <li>開發登入、信用卡綁定、線下條碼支付</li>
-                  <li>新增線上支付與信用卡卡樣顯示功能</li>
-                </ul>
-              </div>
-              <div class="project-block">
-                <h4>技術與成果</h4>
-                <ul class="bullet-list">
-                  <li>C#、.NET 6、MS SQL</li>
-                  <li>金流 API 串接</li>
-                  <li>支援 APP 信用卡綁定與支付明細查詢</li>
-                </ul>
-              </div>
-            </div>
-            <div class="tag-row">
-              <span class="tag">C#</span>
-              <span class="tag">.NET 6</span>
-              <span class="tag">MS SQL</span>
-              <span class="tag">支付流程</span>
-              <span class="tag">API Design</span>
-            </div>
+        <section id="projects" class="card section">
+          <div class="section-head">
+            <h3 class="section-title">代表專案</h3>
+            <p class="section-desc">API 設計、DB Schema 規劃、金流與系統整合</p>
           </div>
 
-          <div class="project-card">
-            <h3>全家 APP｜抽獎趣活動系統</h3>
-            <div class="project-meta">2022/8 – 2022/12</div>
-            <p>
-              協助規劃抽獎活動系統，設計抽獎 DB Schema 與 API，並進行後端核心邏輯開發、Code Review 與流程測試。
-            </p>
-            <div class="project-grid">
-              <div class="project-block">
-                <h4>工作內容</h4>
-                <ul class="bullet-list">
-                  <li>規劃抽獎活動系統架構</li>
-                  <li>設計抽獎系統 DB Schema</li>
-                  <li>設計抽獎 API 與後端核心邏輯</li>
-                </ul>
+          <div class="project-grid">
+            <article class="project-card">
+              <div class="project-top">
+                <h4>RAGflow AI 對談系統</h4>
+                <span class="project-badge">Current</span>
               </div>
-              <div class="project-block">
-                <h4>成果</h4>
-                <ul class="bullet-list">
-                  <li>如期支援全家 APP 抽獎活動上線</li>
-                  <li>支援大量使用者參與活動</li>
-                </ul>
+              <p>
+                內部 AI 對談系統，採三層式架構，串接 Website API、Backend API 與 Ragflow API，
+                負責需求釐清、流程規劃、API 設計與整合開發。
+              </p>
+              <ul>
+                <li>規劃對談流程與資料儲存設計</li>
+                <li>串接 Ragflow API，設計 Website 與後端 API 流程</li>
+                <li>導入 AI-assisted development workflow 輔助需求與開發</li>
+              </ul>
+              <div class="project-tags">
+                <span>RAGflow</span>
+                <span>API Design</span>
+                <span>.NET</span>
+                <span>AI Workflow</span>
               </div>
-            </div>
-            <div class="tag-row">
-              <span class="tag">活動系統</span>
-              <span class="tag">DB Schema</span>
-              <span class="tag">REST API</span>
-              <span class="tag">Code Review</span>
-            </div>
-          </div>
+            </article>
 
-          <div class="project-card">
-            <h3>三商 i 美食 APP｜優惠券與集章系統</h3>
-            <div class="project-meta">2023/7 – 2024/1｜2024/3 正式上線</div>
-            <p>
-              負責優惠券與集章功能規劃，設計 DB Schema 與 API 規格，協助 APP、前端與 POS 廠商串接。
-            </p>
-            <div class="project-grid">
-              <div class="project-block">
-                <h4>工作內容</h4>
-                <ul class="bullet-list">
-                  <li>設計優惠券與集章系統 DB Schema</li>
-                  <li>規劃優惠券 API 規格</li>
-                  <li>提供流程圖與開發參考</li>
-                </ul>
+            <article class="project-card">
+              <div class="project-top">
+                <h4>昇恆昌 APP－錢包支付服務</h4>
+                <span class="project-badge">2023</span>
               </div>
-              <div class="project-block">
-                <h4>成果</h4>
-                <ul class="bullet-list">
-                  <li>支援 POS 串接與功能測試</li>
-                  <li>協助資料驗證與 Code Review</li>
-                </ul>
+              <p>
+                分階段開發錢包支付服務，涵蓋登入、信用卡綁定、線下條碼支付、線上支付與信用卡卡樣顯示。
+              </p>
+              <ul>
+                <li>設計支付流程與 API 規格</li>
+                <li>規劃支付相關 DB Schema</li>
+                <li>指導新人開發流程並進行 Code Review</li>
+              </ul>
+              <div class="project-tags">
+                <span>C#</span>
+                <span>.NET 6</span>
+                <span>MS SQL</span>
+                <span>Payment</span>
               </div>
-            </div>
-            <div class="tag-row">
-              <span class="tag">Coupon System</span>
-              <span class="tag">POS Integration</span>
-              <span class="tag">MS SQL</span>
-              <span class="tag">System Flow</span>
-            </div>
-          </div>
+            </article>
 
-          <div class="project-card">
-            <h3>新光三越｜限購商品系統</h3>
-            <div class="project-meta">2023/10 – 2023/11</div>
-            <p>
-              依照客戶需求設計符合限購與庫存管理邏輯的商品資料結構與 API 規格，並協助 RD 理解既有購買流程。
-            </p>
-            <div class="tag-row">
-              <span class="tag">商品庫存模型</span>
-              <span class="tag">API Spec</span>
-              <span class="tag">工期評估</span>
-              <span class="tag">Code Review</span>
-            </div>
-          </div>
+            <article class="project-card">
+              <div class="project-top">
+                <h4>三商 i 美食－優惠券與集章系統</h4>
+                <span class="project-badge">2023–2024</span>
+              </div>
+              <p>
+                規劃優惠券與集章系統，設計 DB Schema 與 API 規格，支援 APP、前端與 POS 廠商串接。
+              </p>
+              <ul>
+                <li>設計優惠券與集章券資料結構</li>
+                <li>提供流程圖與串接規格供開發團隊參考</li>
+                <li>協助 Code Review、功能測試與資料驗證</li>
+              </ul>
+              <div class="project-tags">
+                <span>Coupon</span>
+                <span>POS Integration</span>
+                <span>DB Schema</span>
+                <span>System Analysis</span>
+              </div>
+            </article>
 
-          <div class="project-card" style="margin-bottom: 0;">
-            <h3>寒舍 APP｜票券分類與轉贈功能</h3>
-            <div class="project-meta">2022/3 – 2022/4</div>
-            <p>
-              串接第三方會員中心，取得票券資料並設計 APP 票券分類與轉贈功能。
-            </p>
-            <div class="tag-row">
-              <span class="tag">第三方串接</span>
-              <span class="tag">票券功能</span>
-              <span class="tag">REST API</span>
-            </div>
+            <article class="project-card">
+              <div class="project-top">
+                <h4>全家 APP－抽獎趣活動系統</h4>
+                <span class="project-badge">2022</span>
+              </div>
+              <p>
+                支援抽獎活動系統規劃與開發，設計抽獎 API、資料結構與後端邏輯，並協助 Code Review 與流程測試。
+              </p>
+              <ul>
+                <li>設計抽獎 DB Schema 與 API</li>
+                <li>協助主管規劃與管理專案</li>
+                <li>如期上線並支援活動使用需求</li>
+              </ul>
+              <div class="project-tags">
+                <span>Activity System</span>
+                <span>REST API</span>
+                <span>MS SQL</span>
+                <span>Code Review</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-top">
+                <h4>新光三越－限購商品系統</h4>
+                <span class="project-badge">2023</span>
+              </div>
+              <p>
+                依客戶需求設計限購商品庫存與商品資料結構，規劃 API 規格、列出開發項目並支援 RD 理解既有流程。
+              </p>
+              <ul>
+                <li>評估工期並整理開發項目</li>
+                <li>設計商品資料欄位與 API 規格</li>
+                <li>協助 Code Review 與流程說明</li>
+              </ul>
+              <div class="project-tags">
+                <span>Inventory Logic</span>
+                <span>API Spec</span>
+                <span>System Design</span>
+              </div>
+            </article>
+
+            <article class="project-card">
+              <div class="project-top">
+                <h4>寒舍 APP－票券分類與轉贈功能</h4>
+                <span class="project-badge">2022</span>
+              </div>
+              <p>
+                串接第三方會員中心，取得票券資料並於 APP 增加票匣分類與轉贈功能。
+              </p>
+              <ul>
+                <li>整合第三方會員中心 API</li>
+                <li>支援票券分類與轉贈流程</li>
+              </ul>
+              <div class="project-tags">
+                <span>Third-party API</span>
+                <span>Ticket System</span>
+                <span>APP Integration</span>
+              </div>
+            </article>
           </div>
         </section>
-      </main>
+      </section>
     </div>
+  </main>
 
-    <div class="footer">
-      © 張瑞育 Resume Site
+  <footer class="site-footer">
+    <div class="container">
+      <p>© 2026 Ray Chang / 張瑞育</p>
     </div>
-  </div>
+  </footer>
 </body>
 </html>
